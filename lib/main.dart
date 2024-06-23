@@ -1,4 +1,4 @@
-import 'package:dalil/core/utils/app_assets.dart';
+import 'package:dalil/core/routes/app_router.dart';
 import 'package:dalil/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -16,13 +16,9 @@ class Dalil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Image.asset(
-          Assets.assetsImagesOnBoarding1,
-        ),
-      ),
     );
   }
 }
