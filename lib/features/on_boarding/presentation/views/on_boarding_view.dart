@@ -1,14 +1,10 @@
 import 'package:dalil/core/database/cache/cache_helper.dart';
 import 'package:dalil/core/services/service_locator.dart';
-import 'package:dalil/core/utils/app_strings.dart';
-import 'package:dalil/core/utils/app_text_styles.dart';
-import 'package:dalil/core/widgets/custom_btn.dart';
 import 'package:dalil/core/widgets/custom_navigate.dart';
-import 'package:dalil/features/on_boarding/data/model/on_boarding_model.dart';
 import 'package:dalil/features/on_boarding/presentation/widgets/onboarding_body.dart';
 import 'package:flutter/material.dart';
-
 import '../widgets/custom_navbar.dart';
+import '../widgets/get_buttons.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
@@ -31,7 +27,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             children: [
               CustomNavBar(
                 onTap: () {
-                  getIt<CacheHelper>().saveData(key: 'isOnBoardingShown', value: true);
+                  getIt<CacheHelper>()
+                      .saveData(key: 'isOnBoardingShown', value: true);
                   customNavigate(context, '/signUp');
                 },
               ),
@@ -46,35 +43,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               const SizedBox(
                 height: 40,
               ),
-              currentIndex == onBoardingData.length - 1
-                  ? Column(
-                      children: [
-                        CustomButton(
-                          text: AppStrings.createAccount,
-                          onPressed: () {
-                            customNavigate(context, '/signUp');
-                          },
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        Text(
-                          AppStrings.signIn,
-                          style: CustomTextStyles.poppins300style16.copyWith(
-                            fontWeight: FontWeight.w400,
-                          ),
-                        )
-                      ],
-                    )
-                  : CustomButton(
-                      text: AppStrings.next,
-                      onPressed: () {
-                        _controller.nextPage(
-                          duration: const Duration(microseconds: 200),
-                          curve: Curves.bounceIn,
-                        );
-                      },
-                    ),
+              GetButtons(
+                currentIndex: currentIndex,
+                controller: _controller,
+              ),
             ],
           ),
         ),

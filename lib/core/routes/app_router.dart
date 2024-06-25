@@ -3,6 +3,8 @@ import 'package:dalil/features/on_boarding/presentation/views/on_boarding_view.d
 import 'package:dalil/features/splash/presentation/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/auth/features/views/sign_in_view.dart';
+
 final GoRouter router = GoRouter(routes: [
   GoRoute(
     path: '/',
@@ -15,5 +17,9 @@ final GoRouter router = GoRouter(routes: [
   GoRoute(
     path: '/signUp',
     builder: (context, state) => const SignUpView(),
+  ),
+  GoRoute(
+    path: '/signIn',
+    builder: (context, state) => const SignInView(),
   ),
 ]);
