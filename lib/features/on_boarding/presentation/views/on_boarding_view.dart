@@ -1,4 +1,5 @@
 import 'package:dalil/core/database/cache/cache_helper.dart';
+import 'package:dalil/core/services/service_locator.dart';
 import 'package:dalil/core/utils/app_strings.dart';
 import 'package:dalil/core/utils/app_text_styles.dart';
 import 'package:dalil/core/widgets/custom_btn.dart';
@@ -30,7 +31,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             children: [
               CustomNavBar(
                 onTap: () {
-                  CacheHelper().saveData(key: 'isOnBoardingShown', value: true);
+                  getIt<CacheHelper>().saveData(key: 'isOnBoardingShown', value: true);
                   customNavigate(context, '/signUp');
                 },
               ),

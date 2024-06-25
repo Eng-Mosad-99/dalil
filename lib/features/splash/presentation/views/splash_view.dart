@@ -1,4 +1,5 @@
 import 'package:dalil/core/database/cache/cache_helper.dart';
+import 'package:dalil/core/services/service_locator.dart';
 import 'package:dalil/core/utils/app_strings.dart';
 import 'package:dalil/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
     bool isOnBoardingShown =
-        CacheHelper().getData(key: 'isOnBoardingShown') ?? false;
+        getIt<CacheHelper>().getData(key: 'isOnBoardingShown') ?? false;
     if (isOnBoardingShown == true) {
       delayedNavigate(context, '/signUp');
     } else {
