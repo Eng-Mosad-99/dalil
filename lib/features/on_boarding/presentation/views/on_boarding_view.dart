@@ -1,6 +1,5 @@
-import 'package:dalil/core/database/cache/cache_helper.dart';
-import 'package:dalil/core/services/service_locator.dart';
 import 'package:dalil/core/widgets/custom_navigate.dart';
+import 'package:dalil/features/on_boarding/presentation/functions/on_boarding.dart';
 import 'package:dalil/features/on_boarding/presentation/widgets/onboarding_body.dart';
 import 'package:flutter/material.dart';
 import '../widgets/custom_navbar.dart';
@@ -27,8 +26,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             children: [
               CustomNavBar(
                 onTap: () {
-                  getIt<CacheHelper>()
-                      .saveData(key: 'isOnBoardingShown', value: true);
+                  onBoardingVisited();
                   customNavigate(context, '/signUp');
                 },
               ),
