@@ -4,7 +4,11 @@ import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_styles.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({super.key, required this.lblText, this.onChanged, this.onFieldSubmitted});
+  const CustomTextFormField(
+      {super.key,
+      required this.lblText,
+      this.onChanged,
+      this.onFieldSubmitted});
   final String lblText;
   final void Function(String)? onChanged, onFieldSubmitted;
   @override
@@ -16,6 +20,7 @@ class CustomTextFormField extends StatelessWidget {
           if (value!.isEmpty) {
             return 'This field is required';
           }
+          return null;
         },
         onChanged: onChanged,
         onFieldSubmitted: onFieldSubmitted,
