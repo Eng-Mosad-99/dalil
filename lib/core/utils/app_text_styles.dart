@@ -58,4 +58,5 @@ abstract class CustomTextStyles {
     color: Colors.white,
     fontFamily: "Pacifico",
   );
+
 }
