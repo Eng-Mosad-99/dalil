@@ -1,6 +1,7 @@
 import 'package:dalil/core/services/service_locator.dart';
 import 'package:dalil/features/auth/features/auth_cubit/cubit/auth_cubit.dart';
 import 'package:dalil/features/auth/features/views/sign_up_view.dart';
+import 'package:dalil/features/home/presentation/views/home_view.dart';
 import 'package:dalil/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:dalil/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,15 +21,19 @@ final GoRouter router = GoRouter(routes: [
   GoRoute(
     path: '/signUp',
     builder: (context, state) => BlocProvider(
-      create: (context) => getIt<AuthCubit>(),
+      create: (context) => AuthCubit(),
       child: const SignUpView(),
     ),
   ),
   GoRoute(
     path: '/signIn',
     builder: (context, state) => BlocProvider(
-      create: (context) => getIt<AuthCubit>(),
+      create: (context) => AuthCubit(),
       child: const SignInView(),
     ),
+  ),
+  GoRoute(
+    path: '/home',
+    builder: (context, state) => const HomeView(),
   ),
 ]);

@@ -12,4 +12,6 @@ final class SignUpFailureState extends AuthState {
   SignUpFailureState(this.errorMessage);
 }
 
-final class updateTermsAndConditionCheckBoxState extends AuthState {}
+final class UpdateTermsAndConditionCheckBoxState extends AuthState {}
+
+final class ObscurePasswordTextUpdateState extends AuthState {}

@@ -1,4 +1,5 @@
 import 'package:dalil/core/utils/app_strings.dart';
+import 'package:dalil/core/widgets/custom_navigate.dart';
 import 'package:flutter/material.dart';
 import '../widgets/custom_sign_up_form.dart';
 import '../widgets/have_an_account_widget.dart';
@@ -9,30 +10,30 @@ class SignUpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: SizedBox(
                 height: 80,
               ),
             ),
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: WelcomeTextWidget(
                 text: AppStrings.welcome,
               ),
             ),
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: SizedBox(
                 height: 30,
               ),
             ),
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: CustomSignUpForm(),
             ),
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: SizedBox(
                 height: 16,
               ),
@@ -41,6 +42,9 @@ class SignUpView extends StatelessWidget {
               child: HaveAnAccountWidget(
                 textOne: AppStrings.alreadyHaveAnAccount,
                 textTwo: AppStrings.signIn,
+                onTap: () {
+                  customNavigate(context, '/signIn');
+                },
               ),
             ),
           ],
@@ -49,4 +53,3 @@ class SignUpView extends StatelessWidget {
     );
   }
 }
-
