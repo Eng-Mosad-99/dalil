@@ -58,5 +58,11 @@ abstract class CustomTextStyles {
     color: Colors.white,
     fontFamily: "Pacifico",
   );
-
+  // ignore: constant_identifier_names
+  static const saira_Condensed700style32 = TextStyle(
+    fontSize: 32,
+    fontWeight: FontWeight.w700,
+    color: Colors.white,
+    fontFamily: "Saira",
+  );
 }

@@ -1,4 +1,3 @@
-import 'package:dalil/core/services/service_locator.dart';
 import 'package:dalil/features/auth/features/auth_cubit/cubit/auth_cubit.dart';
 import 'package:dalil/features/auth/features/views/sign_up_view.dart';
 import 'package:dalil/features/home/presentation/views/home_view.dart';

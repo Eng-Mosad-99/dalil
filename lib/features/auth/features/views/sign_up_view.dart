@@ -14,6 +14,7 @@ class SignUpView extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
           slivers: [
             const SliverToBoxAdapter(
               child: SizedBox(
@@ -43,7 +44,7 @@ class SignUpView extends StatelessWidget {
                 textOne: AppStrings.alreadyHaveAnAccount,
                 textTwo: AppStrings.signIn,
                 onTap: () {
-                  customNavigate(context, '/signIn');
+                  customReplacementNavigate(context, '/signIn');
                 },
               ),
             ),
