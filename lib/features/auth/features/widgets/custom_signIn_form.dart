@@ -3,6 +3,7 @@ import 'package:dalil/core/functions/custom_toast.dart';
 import 'package:dalil/core/utils/app_colors.dart';
 import 'package:dalil/core/widgets/custom_navigate.dart';
 import 'package:dalil/features/auth/features/auth_cubit/cubit/auth_cubit.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/app_strings.dart';
@@ -24,8 +25,9 @@ class _CustomSignInFormState extends State<CustomSignInForm> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is SignInSuccessState) {
-          customToast('Welcome back!');
-          customReplacementNavigate(context, '/home');
+          FirebaseAuth.instance.currentUser!.emailVerified
+              ? customReplacementNavigate(context, '/home')
+              : customToast('Please verify your email');
         } else if (state is SignInFailureState) {
           customToast(state.errorMessage);
         }

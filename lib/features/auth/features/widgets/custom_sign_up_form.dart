@@ -24,8 +24,8 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is SignUpSuccessState) {
-          customToast('Account Created Successfully');
-          customReplacementNavigate(context, '/home');
+          customToast('Successfully,check your email to verify your account');
+          customReplacementNavigate(context, '/signIn');
         } else if (state is SignUpFailureState) {
           customToast(state.errorMessage);
         }
