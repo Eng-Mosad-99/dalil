@@ -1,5 +1,7 @@
 import 'package:dalil/features/auth/features/auth_cubit/cubit/auth_cubit.dart';
+import 'package:dalil/features/auth/features/views/forget_password.dart';
 import 'package:dalil/features/auth/features/views/sign_up_view.dart';
+import 'package:dalil/features/auth/features/widgets/forget_password_text.dart';
 import 'package:dalil/features/home/presentation/views/home_view.dart';
 import 'package:dalil/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:dalil/features/splash/presentation/views/splash_view.dart';
@@ -29,6 +31,13 @@ final GoRouter router = GoRouter(routes: [
     builder: (context, state) => BlocProvider(
       create: (context) => AuthCubit(),
       child: const SignInView(),
+    ),
+  ),
+  GoRoute(
+    path: '/forgetPassword',
+    builder: (context, state) => BlocProvider(
+      create: (context) => AuthCubit(),
+      child: const ForgetPasswordView(),
     ),
   ),
   GoRoute(

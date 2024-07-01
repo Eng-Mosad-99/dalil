@@ -11,6 +11,7 @@ class AuthCubit extends Cubit<AuthState> {
   String? emailAddress, password, firstName, lastName;
   GlobalKey<FormState> signUpFormKey = GlobalKey<FormState>();
   GlobalKey<FormState> signInFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> resetPasswordFormKey = GlobalKey<FormState>();
   bool? termsAndConditionCheckBoxValue = false;
   bool? obscurePasswordTextValue = true;
 
@@ -77,5 +78,15 @@ class AuthCubit extends Cubit<AuthState> {
 
   verifyEmail() async {
     await FirebaseAuth.instance.currentUser!.sendEmailVerification();
+  }
+
+  resetPasswordWithLink() async {
+    try {
+      emit(ForgetPasswordLoadingState());
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: emailAddress!);
+      emit(ForgetPasswordSuccessState());
+    } catch (e) {
+      emit(ForgetPasswordFailureState(e.toString()));
+    }
   }
 }
